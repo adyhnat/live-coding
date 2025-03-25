@@ -1,36 +1,17 @@
-import bartLogo from '/logo/logo-symbol_RGB.svg';
-import React from 'react';
+import './style.css';
 
-function App() {
-  const [count, setCount] = React.useState(0);
-  const [inputValue, setInputValue] = React.useState('');
-  const [sum, setSum] = React.useState(0);
-
-  React.useEffect(() => {
-    setSum(count + Number(inputValue || 0));
-  }, [count]);
-
+const App = () => {
   return (
     <>
-      <div>
-        <img src={bartLogo} />
-      </div>
       <h1>Live Coding!</h1>
       <div className="card">
-        <button onClick={() => setCount(count + 1)}>+</button>
+        <input readOnly className="display" placeholder="Zadaj číslo" />
         <br />
-        <input
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Zadaj číslo"
-          style={{ marginTop: '10px', padding: '5px' }}
-        />
-        <p>
-          <b>Súčet:</b> {sum}
-        </p>
+        <br />
+        <div className="keyboard"></div>
       </div>
     </>
   );
-}
+};
 
 export default App;
